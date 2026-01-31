@@ -1,0 +1,64 @@
+name: Publish to band repo (dist only)
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (personal repo)
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish dist to band repo
+        env:
+          TOKEN: ${{ secrets.BAND_REPO_TOKEN }}
+          BAND_REPO: ishikeri/public-site   # ←ここを実値に変更
+          TARGET_BRANCH: main                 # ← band repoの受け皿branch
+        run: |
+          set -euo pipefail
+
+          # distを一時ディレクトリへ
+          rm -rf out
+          mkdir -p out
+          cp -R dist/* out/
+
+          # band repoをclone（tokenで認証）
+          rm -rf bandrepo
+          git clone https://x-access-token:${TOKEN}@github.com/${BAND_REPO}.git bandrepo
+
+          cd bandrepo
+          git checkout ${TARGET_BRANCH} || git checkout -b ${TARGET_BRANCH}
+
+          # 中身をdistだけで置き換える（CNAMEやREADMEを残したいならここを調整）
+          find . -mindepth 1 -maxdepth 1 ! -name ".git" -exec rm -rf {} +
+          cp -R ../out/* .
+
+          # Pages向けに .nojekyll（任意：Vite/Astroのアセットで安全）
+          touch .nojekyll
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+            exit 0
+          fi
+
+          git config user.name "publish-bot"
+          git config user.email "publish-bot@users.noreply.github.com"
+          git commit -m "Publish: ${GITHUB_SHA}"
+          git push origin ${TARGET_BRANCH}
