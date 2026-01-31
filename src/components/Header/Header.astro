@@ -1,6 +1,7 @@
 ---
 import "./Header.scss";
 import { nav } from "../../data/information";
+import type { NavItem } from "../../data/information";
 
 ---
 <header class="header">
@@ -10,7 +11,7 @@ import { nav } from "../../data/information";
     </a> -->
 
     <nav class="header__nav" aria-label="Primary">
-      {nav.map((item) => (
+      {nav.map((item: NavItem) => (
         <a
           class="header__link"
           href={item.href}

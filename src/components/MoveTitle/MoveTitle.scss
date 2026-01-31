@@ -1,0 +1,20 @@
+.about-title {
+  margin-top: 10px;
+  margin-bottom: 22px;
+
+  &__canvas {
+    position: relative;
+    width: 100%;
+    height: min(600px, 60vh);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,.02);
+  }
+
+  &__canvas canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+  }
+}

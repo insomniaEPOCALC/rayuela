@@ -1,0 +1,62 @@
+---
+import "./ScheduleList.scss";
+import type { Schedule } from "../../data/schedule";
+
+type Props = { schedules: Schedule[] };
+const { schedules } = Astro.props;
+
+const sorted = [...schedules].sort(
+  (a, b) => new Date(a.datetime).getTime() - new Date(b.datetime).getTime(),
+);
+
+const fmt = new Intl.DateTimeFormat("ja-JP", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  weekday: "short",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+---
+
+<section class="schedules">
+  {
+    sorted.map((s) => {
+      const dt = new Date(s.datetime);
+      return (
+        <article class="schedule">
+          <div class="schedule__meta">
+            <time class="schedule__datetime" datetime={s.datetime}>
+              {fmt.format(dt)}
+            </time>
+            <span class="schedule__ticket">{s.ticket}</span>
+          </div>
+
+          <h2 class="schedule__title">{s.title}</h2>
+
+          {s.flyerPath && (
+            <img
+              class="schedule__img"
+              src={s.flyerPath}
+              alt=""
+              loading="lazy"
+            />
+          )}
+
+          {s.details && <p class="schedule__details">{s.details}</p>}
+
+          {s.link && (
+            <a
+              class="schedule__link"
+              href={s.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              詳細を見る
+            </a>
+          )}
+        </article>
+      );
+    })
+  }
+</section>

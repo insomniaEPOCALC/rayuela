@@ -1,0 +1,28 @@
+---
+import "./MoveTitle.scss";
+---
+
+<section class="about-title">
+  <div class="about-title__canvas" id="about-title-host" aria-hidden="true">
+  </div>
+</section>
+
+<script>
+  import { mountAboutTitle } from "./titleMover";
+
+  const host = document.getElementById("about-title-host");
+  if (host && !host.dataset.mounted) {
+    host.dataset.mounted = "1";
+
+    const cleanup = mountAboutTitle(host, {
+      line1: "石蹴り遊びは",
+      line2: "楽しいフォークバンドです",
+      strokeAlpha: 150,
+      fontSize: 42,
+      // fontFamily は省略でOK（bodyのfont-familyから自動取得）
+    });
+
+    window.addEventListener("beforeunload", cleanup, { once: true });
+  }
+</script>
+

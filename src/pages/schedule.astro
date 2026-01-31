@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../layouts/AppLayout/AppLayout.astro";
+import ScheduleList from "../components/ScheduleList/ScheduleList.astro";
+import { schedules } from "../data/schedule";
+---
+
+<BaseLayout title="Schedule | 石蹴り遊び">
+  <h1>Schedule</h1>
+  <ScheduleList schedules={schedules} />
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/AppLayout/AppLayout.astro";
+import MoveTitle from "../components/MoveTitle/MoveTitle.astro";
+import "../styles/about.scss";
+import { members } from "../data/information";
+---
+
+<BaseLayout title="About | 石蹴り遊び">
+  <h1>About</h1>
+
+  <MoveTitle />
+
+  <h2>Members</h2>
+  <section class="members">
+    {
+      members.map((m) => (
+        <article class="member">
+          <h2 class="member__name">{m.name}</h2>
+
+          <img class="member__img" src={m.img} alt="" loading="lazy" />
+
+          <a class="member__desc" href={m.href}>
+            {m.desc}
+          </a>
+        </article>
+      ))
+    }
+  </section>
+</BaseLayout>
