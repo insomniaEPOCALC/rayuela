@@ -1,0 +1,20 @@
+---
+import "./SocialLinks.scss";
+import { links } from "../../data/information";
+
+---
+
+<div class="social">
+  {
+    links.map((l) => (
+      <a
+        class="social__item"
+        href={l.href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {l.label}
+      </a>
+    ))
+  }
+</div>

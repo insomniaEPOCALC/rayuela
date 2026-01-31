@@ -1,0 +1,21 @@
+@use "../../styles/variables" as *;
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+
+  &__item {
+    border: 1px solid $line;
+    padding: 8px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    line-height: 1;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

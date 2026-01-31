@@ -1,0 +1,25 @@
+---
+import "./Header.scss";
+import { nav } from "../../data/information";
+
+---
+<header class="header">
+  <div class="header__inner">
+    <!-- <a class="header__brand" href="/" aria-label="Home">
+      <img class="header__icon" src="/rayuela-icon.svg" alt="" width="250" height=auto />
+    </a> -->
+
+    <nav class="header__nav" aria-label="Primary">
+      {nav.map((item) => (
+        <a
+          class="header__link"
+          href={item.href}
+          target={item.external ? "_blank" : undefined}
+          rel={item.external ? "noopener noreferrer" : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

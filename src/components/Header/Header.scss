@@ -1,0 +1,56 @@
+@use "../../styles/variables" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 253, 253, 0.55);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $line;
+
+  &__inner {
+    max-width: $maxw;
+    margin: 0 auto;
+    padding: 12px $pad;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    min-width: 140px;
+  }
+
+  &__icon {
+    border-radius: 8px;
+    border: 1px solid $line;
+  }
+
+  &__name {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+  }
+
+  &__link {
+    text-decoration: none;
+    opacity: 0.9;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 1;
+    }
+  }
+}

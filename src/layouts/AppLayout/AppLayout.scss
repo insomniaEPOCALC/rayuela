@@ -1,0 +1,7 @@
+@use "../../styles/variables" as *;
+
+.main {
+  max-width: $maxw;
+  margin: 0 auto;
+  padding: 18px $pad 48px;
+}

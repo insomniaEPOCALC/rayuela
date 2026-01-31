@@ -1,0 +1,24 @@
+---
+import "./RainOverlay.scss";
+---
+<div class="rain">
+  <div class="rain__host" id="rain-host" aria-hidden="true"></div>
+</div>
+
+<script>
+  import { mountRain } from "./rain";
+
+  console.log("RainOverlay mounted");
+
+  const host = document.getElementById("rain-host");
+  if (host) {
+    if (!host.dataset.mounted) {
+      host.dataset.mounted = "1";
+
+      const cleanup = mountRain(host, { density: 120, maxShakePx: 16 });
+
+      // HMRなどで破棄される場合に備える
+      window.addEventListener("beforeunload", cleanup, { once: true });
+    }
+  }
+</script>

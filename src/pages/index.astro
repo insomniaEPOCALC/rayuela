@@ -1,17 +1,46 @@
 ---
-
+import BaseLayout from "../layouts/AppLayout/AppLayout.astro";
+import SocialLinks from "../components/SocialLinks/SocialLinks.astro";
+import RainOverlay from "../components/RainOverlay/RainOverlay.astro";
+import "../styles/index.scss";
 ---
 
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="石蹴り遊び">
+  <RainOverlay />
+
+  <section class="lp">
+    <div class="lp__center">
+      <img
+        class="lp__logo"
+        src="/rayuela-icon.svg"
+        alt="Rayuela"
+        width="400"
+        height="auto"
+        loading="eager"
+      />
+      <figure class="lp__photo">
+        <img src="/rayuela-test.jpg" alt="Press photo" loading="eager" />
+      </figure>
+    </div>
+
+    <div class="lp__credits">
+      <div class="lp__credit-item">
+        Photo by <a
+          href="https://www.instagram.com/tamura_shotaro/"
+          target="_blank"
+          rel="noopener noreferrer">Shotaro Tamura</a
+        >
+      </div>
+      <div class="lp__credit-item">
+        Fonts by <a
+          href="https://github.com/KazukiKimuraJP/KazukiReiwa?tab=readme-ov-file"
+          target="_blank"
+          rel="noopener noreferrer">Kazuki Reiwa</a
+        >
+      </div>
+      <div class="lp__bottom">
+        <SocialLinks />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+@use "./variables" as *;
+@use "./fonts";
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: $bg;
+  color: $fg;
+  font-family: "KazukiReiwa", ui-sans-serif, system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", sans-serif;
+}
+a { color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
