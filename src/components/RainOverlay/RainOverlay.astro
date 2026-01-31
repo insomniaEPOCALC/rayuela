@@ -17,7 +17,6 @@ import "./RainOverlay.scss";
 
       const cleanup = mountRain(host, { density: 120, maxShakePx: 16 });
 
-      // HMRなどで破棄される場合に備える
       window.addEventListener("beforeunload", cleanup, { once: true });
     }
   }
