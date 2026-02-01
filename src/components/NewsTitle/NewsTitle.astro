@@ -1,0 +1,18 @@
+---
+import "./NewsTitle.scss";
+---
+
+<div class="news-title">
+  <div id="news-title-host"></div>
+</div>
+
+<script>
+  import { mountNewsTitle } from "./NewsTitle";
+
+  const host = document.getElementById("news-title-host");
+  if (host && !host.dataset.mounted) {
+    host.dataset.mounted = "1";
+    const cleanup = mountNewsTitle(host);
+    window.addEventListener("beforeunload", cleanup, { once: true });
+  }
+</script>

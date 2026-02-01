@@ -2,9 +2,11 @@
 import BaseLayout from "../layouts/AppLayout/AppLayout.astro";
 import NewsList from "../components/NewsList/NewsList.astro";
 import { news } from "../data/news";
+import NewsTitle from "../components/NewsTitle/NewsTitle.astro";
 ---
 
 <BaseLayout title="News | 石蹴り遊び">
-  <h1>News</h1>
+  <h1 style="visibility: hidden">News</h1>
+  <NewsTitle />
   <NewsList news={news} />
 </BaseLayout>

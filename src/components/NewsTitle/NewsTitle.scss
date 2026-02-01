@@ -1,0 +1,13 @@
+.news-title {
+  position: relative;
+  width: 100%;
+  height: min(420px, 45vh);
+  margin-bottom: 24px;
+
+  #news-title-host,
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
