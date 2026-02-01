@@ -19,9 +19,10 @@
   }
 
   &__brand {
+    font-weight: 700;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     min-width: 140px;
   }

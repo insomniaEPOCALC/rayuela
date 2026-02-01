@@ -11,17 +11,17 @@ export type NavItem = {
 export const nav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Schedule", href: "/schedule" },
   { label: "News", href: "/news" },
-//  { label: "Store", href: storeUrl, external: true },
-//  { label: "Contact", href: contactUrl, external: true },
+  { label: "Schedule", href: "/schedule" },
+  //  { label: "Store", href: storeUrl, external: true },
+  //  { label: "Contact", href: contactUrl, external: true },
 ];
 
 export const links = [
   { label: "X", href: "https://x.com/rayuela____" },
   { label: "Instagram", href: "https://instagram.com/rayuela_band" },
-//  { label: "YouTube", href: "https://youtube.com/@your_account" },
-//  { label: "Bandcamp", href: "https://your.bandcamp.com" },
+  //  { label: "YouTube", href: "https://youtube.com/@your_account" },
+  //  { label: "Bandcamp", href: "https://your.bandcamp.com" },
 ];
 
 export const members = [
