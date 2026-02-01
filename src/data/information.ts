@@ -18,8 +18,12 @@ export const nav = [
 ];
 
 export const links = [
-  { label: "X", href: "https://x.com/rayuela____" },
-  { label: "Instagram", href: "https://instagram.com/rayuela_band" },
+  { label: "X", href: "https://x.com/rayuela____", img: "/sns/x.png" },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/rayuela_band",
+    img: "/sns/instagram.png",
+  },
   //  { label: "YouTube", href: "https://youtube.com/@your_account" },
   //  { label: "Bandcamp", href: "https://your.bandcamp.com" },
 ];

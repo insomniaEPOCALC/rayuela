@@ -1,19 +1,24 @@
 ---
 import "./SocialLinks.scss";
 import { links } from "../../data/information";
-
 ---
 
 <div class="social">
   {
     links.map((l) => (
       <a
-        class="social__item"
+        class="social__link"
         href={l.href}
         target="_blank"
         rel="noopener noreferrer"
       >
-        {l.label}
+        <img
+          class="social__icon"
+          src={`${l.img}`}
+          alt={l.label}
+          title={l.label}
+          loading="lazy"
+        />
       </a>
     ))
   }
