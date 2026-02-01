@@ -39,6 +39,7 @@ let formatNews = (latestNews: News[]) => {
 
     <h2 class="lp__news-title">Latest News</h2>
     <NewsList news={formatNews(latestNews)} />
+    <div class="lp__bottom"></div>
     <div class="lp__credits">
       <div class="lp__credit-item">
         Photo by <a
@@ -53,10 +54,6 @@ let formatNews = (latestNews: News[]) => {
           target="_blank"
           rel="noopener noreferrer">Kazuki Reiwa</a
         >
-      </div>
-
-      <div class="lp__bottom">
-        <SocialLinks />
       </div>
     </div>
   </section>
