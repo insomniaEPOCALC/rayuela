@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../layouts/AppLayout/AppLayout.astro";
+import NewsList from "../components/NewsList/NewsList.astro";
+import { news } from "../data/news";
+---
+
+<BaseLayout title="News | 石蹴り遊び">
+  <h1>News</h1>
+  <NewsList news={news} />
+</BaseLayout>

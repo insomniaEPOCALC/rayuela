@@ -1,0 +1,70 @@
+@use "../../styles/variables" as *;
+
+.newses {
+  display: grid;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.news {
+  border: 1px solid $line;
+  border-radius: $radius;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.02);
+
+  &__meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &__datetime {
+    opacity: 0.88;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  &__ticket {
+    opacity: 0.72;
+    font-size: 13px;
+    border: 1px solid $line;
+    padding: 4px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  &__img {
+    width: 50%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid $line;
+    margin: 0 0 10px;
+  }
+
+  &__details {
+    margin: 0 0 10px;
+    opacity: 0.88;
+    line-height: 1.75;
+    white-space: pre-wrap; // \n を効かせる
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.88;
+
+    &:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+}

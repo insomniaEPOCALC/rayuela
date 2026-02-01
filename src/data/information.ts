@@ -12,7 +12,7 @@ export const nav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Schedule", href: "/schedule" },
-//  { label: "Blog", href: "/blog" },
+  { label: "News", href: "/news" },
 //  { label: "Store", href: storeUrl, external: true },
 //  { label: "Contact", href: contactUrl, external: true },
 ];
