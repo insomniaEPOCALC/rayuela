@@ -1,8 +1,13 @@
+@use "../../styles/media" as *;
+
 .news-title {
   position: relative;
   width: 100%;
-  height: min(420px, 45vh);
+  height: min(200px, 20vh);
   margin-bottom: 24px;
+  @include mobile {
+    height: min(150px, 15vh);
+  }
 
   #news-title-host,
   canvas {

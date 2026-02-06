@@ -1,3 +1,5 @@
+@use "../../styles/media" as *;
+
 .about-title {
   margin-top: 10px;
   margin-bottom: 22px;
@@ -10,6 +12,9 @@
     border-radius: 16px;
     overflow: hidden;
     background: rgba(255,255,255,.02);
+    @include mobile {
+      height: min(200px, 20vh);
+    }
   }
 
   &__canvas canvas {
