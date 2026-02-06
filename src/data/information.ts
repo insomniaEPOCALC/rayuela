@@ -24,6 +24,7 @@ export const links = [
     href: "https://instagram.com/rayuela_band",
     img: "/sns/instagram.png",
   },
+  { label: "SoundCloud", href: "https://soundcloud.com/r_a_y_u_e_l_a", img: "/sns/soundcloud.png" },
   //  { label: "YouTube", href: "https://youtube.com/@your_account" },
   //  { label: "Bandcamp", href: "https://your.bandcamp.com" },
 ];
