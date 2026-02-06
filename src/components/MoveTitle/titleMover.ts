@@ -20,7 +20,6 @@ export type AboutTitleOptions = {
 };
 
 function pickPrimaryFontFamily(bodyFontFamily: string) {
-  // `"KazukiReiwa","Noto Sans JP",sans-serif` → KazukiReiwa
   const first = bodyFontFamily.split(",")[0]?.trim() ?? "";
   return first.replace(/^['"]|['"]$/g, "");
 }
@@ -35,15 +34,12 @@ export function mountAboutTitle(
   const strokeAlpha = opts.strokeAlpha ?? 150;
   let baseFontSize = opts.fontSize ?? 42;
 
-  // ✅ global.scss の body { font-family: ... } を拾う
   const bodyFontFamily = getComputedStyle(document.body).fontFamily;
   const fontFamily = opts.fontFamily ?? pickPrimaryFontFamily(bodyFontFamily);
 
-  // ✅ ポインタは「host内のローカル座標」に変換して保持
   let pointerX = -9999;
   let pointerY = -9999;
 
-  // 「滑らすと動く」用に速度もローカルで保持
   let lastPX = 0;
   let lastPY = 0;
   let pvx = 0;
@@ -79,7 +75,6 @@ export function mountAboutTitle(
     let letters: Letter[] = [];
 
     const getCanvasSize = () => {
-      // ✅ windowではなくhost基準（偏りの元を潰す）
       const w = Math.max(1, Math.floor(host.clientWidth));
       const h = Math.max(1, Math.floor(host.clientHeight));
       return { w, h };
@@ -94,7 +89,6 @@ export function mountAboutTitle(
     const lineHeight = (fs: number) => Math.floor(fs * 1.25);
 
     const buildLineCentered = (text: string, y: number, lineIndex: number) => {
-      // まず行幅を測ってセンターに置く
       const lineW = p.textWidth(text);
       let x = (p.width - lineW) / 2;
 
@@ -122,14 +116,11 @@ export function mountAboutTitle(
       p.textSize(fs);
       p.textStyle(p.NORMAL);
 
-      // ✅ p5にフォント指定（CSSでロード済みならこれで反映される）
-      // フォント名は1つ目を使う。もし反映されない場合は下の注意参照。
       p.textFont(fontFamily);
 
       const lh = lineHeight(fs);
 
-      // 上部に寄せつつ、host高さに対して無理しない
-      const top = Math.max(44, Math.floor(p.height * 0.45 - lh)); // 見た目の中心が上に寄りすぎないよう調整
+      const top = Math.max(44, Math.floor(p.height * 0.45 - lh));
 
       buildLineCentered(line1, top, 0);
       buildLineCentered(line2, top + lh, 1);
@@ -153,8 +144,6 @@ export function mountAboutTitle(
 
     p.draw = () => {
       p.clear();
-
-      // 透明な縁のみ
       p.stroke(0, 0, 0, strokeAlpha);
       p.strokeWeight(1.2);
 
@@ -162,18 +151,16 @@ export function mountAboutTitle(
 
       const hasPointer = pointerX > -1000;
 
-      // ポインタ速度は自然減衰
       pvx *= 0.8;
       pvy *= 0.8;
 
       for (const L of letters) {
         if (hasPointer && isHover(L, pointerX, pointerY)) {
-          // ✅「滑らすと動く」= ポインタ速度方向へ加速
+
           const k = 0.22;
           L.vx += pvx * k;
           L.vy += pvy * k;
 
-          // 触った感（軽い反発）
           const cx = L.x + L.w * 0.5;
           const cy = L.y - L.h * 0.5;
           const dx = cx - pointerX;
@@ -184,11 +171,10 @@ export function mountAboutTitle(
           L.vy += (dy / d) * repel;
         }
 
-        // 減衰
+
         L.vx *= friction;
         L.vy *= friction;
 
-        // 位置更新（外へ出てもOK）
         L.x += L.vx;
         L.y += L.vy;
 

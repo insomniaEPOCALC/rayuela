@@ -94,29 +94,9 @@ export function mountRain(host: HTMLElement, opts: RainMountOptions = {}) {
       const sy =
         (p.noise(1000 + p.frameCount * 0.01) - 0.5) * maxShakePx * shake;
 
-      const AVOID_RADIUS = 300; // ポインタの影響半径
-      const AVOID_FORCE = 30; // 横にずらす最大量
-
       for (const d of drops) {
         let ox = 0;
         let oy = 0;
-
-        // ポインタ回避
-        if (pointerX > -1000) {
-          const dx = d.x - pointerX;
-          const dy = d.y - pointerY;
-          const dist = Math.hypot(dx, dy);
-
-          if (dist < AVOID_RADIUS && dist > 0.001) {
-            const t = 1 - dist / AVOID_RADIUS; // 近いほど強い
-            const nx = dx / dist;
-            const ny = dy / dist;
-
-            // 主に横方向へ逃がす（縦は控えめ）
-            ox += nx * AVOID_FORCE * t;
-            oy += ny * AVOID_FORCE * t * 0.2;
-          }
-        }
 
         const x = d.x + sx + ox;
         const y = d.y + sy + oy;
