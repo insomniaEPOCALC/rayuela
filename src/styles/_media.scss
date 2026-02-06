@@ -1,0 +1,6 @@
+$mobile: 959px;
+$desktop: 960px;
+
+@mixin mobile { @media (max-width: $mobile) { @content; } }
+@mixin desktop { @media (min-width: $desktop) { @content; } }
+@mixin hover { @media (any-hover: hover) { @content; } }

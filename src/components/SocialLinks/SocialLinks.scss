@@ -1,4 +1,5 @@
 @use "../../styles/variables" as *;
+@use "../../styles/media" as *;
 
 .social {
   display: flex;
@@ -22,5 +23,8 @@
     vertical-align: middle;
     width: 50px;
     height: auto;
+    @include mobile {
+      width: 20px;
+    }
   }
 }
