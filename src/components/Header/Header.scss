@@ -10,7 +10,6 @@
   border-bottom: 1px solid $line;
 
   &__inner {
-    max-width: $maxw;
     margin: 0 auto;
     padding: 12px $pad;
     display: flex;
@@ -19,13 +18,23 @@
     gap: 12px;
   }
 
-  &__brand {
-    font-weight: 700;
-    display: inline-flex;
+  &__wrapper {
+    display: flex;
     align-items: center;
+    gap: 30px;
+  }
+
+  &__brand {
+    vertical-align: middle;
     gap: 8px;
     text-decoration: none;
     min-width: 140px;
+    width: 250px;
+    height: auto;
+
+    @include mobile {
+      width: 180px;
+    }
   }
 
   &__icon {
@@ -46,8 +55,9 @@
     justify-content: flex-end;
     a {
       font-size: 24px;
+      line-height: 1;
       @include mobile {
-        font-size: 18px;
+        font-size: 12px;
       }
     }
   }

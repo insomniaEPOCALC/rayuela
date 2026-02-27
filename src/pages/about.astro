@@ -17,7 +17,7 @@ import { members } from "../data/information";
         <article class="member">
           <h2 class="member__name">{m.name}</h2>
 
-          <img class="member__img" src={m.img} alt="" loading="lazy" />
+          {/* <img class="member__img" src={m.img} alt="" loading="lazy" /> */}
 
           <a class="member__desc" href={m.href}>
             {m.desc}
@@ -26,4 +26,13 @@ import { members } from "../data/information";
       ))
     }
   </section>
+
+  <div class="about__photo-wrapper">
+    <img
+      src="img/ishikeriasobi_4.jpeg"
+      alt="Press photo"
+      loading="eager"
+      class="about__photo"
+    />
+  </div>
 </BaseLayout>

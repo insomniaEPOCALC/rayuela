@@ -7,21 +7,31 @@ import type { NavItem } from "../../data/information";
 
 <header class="header">
   <div class="header__inner">
+    <div class="header__wrapper">
+      <a href="/">
+        <img
+          class="header__brand"
+          src="rayuela-icon.svg"
+          alt="Rayuela"
+          loading="eager"
+        />
+      </a>
 
-    <nav class="header__nav" aria-label="Primary">
-      {
-        nav.map((item: NavItem) => (
-          <a
-            class="header__link"
-            href={item.href}
-            target={item.external ? "_blank" : undefined}
-            rel={item.external ? "noopener noreferrer" : undefined}
-          >
-            {item.label}
-          </a>
-        ))
-      }
-    </nav>
+      <nav class="header__nav" aria-label="Primary">
+        {
+          nav.map((item: NavItem) => (
+            <a
+              class="header__link"
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
     <SocialLinks />
   </div>
 </header>
