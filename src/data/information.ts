@@ -31,8 +31,8 @@ export const links = [
 
 export const members = [
   {
-    name: "Member A",
-    desc: "これはテストですこれはテストですこれはテストですこれはテストですこれはテストです。",
+    name: "関\"EPOCALC\"貴彦",
+    desc: "Ukulele, Vocal。2000.01.06 仙台市出身。2019年からEPOCALC名義で音楽ブロガーとして活動、メディアWater Walkを運営。",
     href: "#",
     img: "/rayuela-test.jpg",
   },
