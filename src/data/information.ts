@@ -37,7 +37,7 @@ export const members = [
     img: "/rayuela-test.jpg",
   },
   {
-    name: "遠藤",
+    name: "芦和香奈",
     desc: "1998年生まれ。宮城県出身、西東京市在住。ピアニカ/小物楽器担当。最近は京都の豆腐のおいしさに感動した。",
     href: "#",
     img: "/rayuela-test.jpg",
