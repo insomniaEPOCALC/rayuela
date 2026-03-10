@@ -32,7 +32,7 @@ export const links = [
 export const members = [
   {
     name: "関\"EPOCALC\"貴彦",
-    desc: "2000年生まれ。宮城県出身。ウクレレ・ボーカル担当。2019年からEPOCALC名義で音楽ブロガーとして活動し、メディアWater Walkを運営中。",
+    desc: "2000年生まれ。宮城県出身。ウクレレ・ボーカル担当。大体の曲を作っている。2019年からEPOCALC名義で音楽ブロガーとして活動、メディアWater Walkを運営中。うさぎが好き。",
     href: "#",
     img: "/rayuela-test.jpg",
   },
