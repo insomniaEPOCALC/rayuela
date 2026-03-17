@@ -17,6 +17,19 @@ const fmt = new Intl.DateTimeFormat("ja-JP", {
   hour: "2-digit",
   minute: "2-digit",
 });
+
+let newsFlag = false;
+
+if(sorted.length > 0) {
+  newsFlag = true;
+} else {
+  sorted.push({
+    datetime: new Date().toISOString(),
+    title: "現在、ニュースはありません。",
+  });
+}
+
+
 ---
 
 <section class="newses">
