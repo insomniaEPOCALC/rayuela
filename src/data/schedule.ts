@@ -1,7 +1,7 @@
 export type Schedule = {
   datetime: string;
   title: string;
-  ticket: string;
+  ticket?: string;
   flyerPath?: string;
   details?: string;
   link?: string;
@@ -11,11 +11,12 @@ export const schedules: Schedule[] = [
   {
     datetime: "2026-05-14T18:30:00+09:00",
     title: "タイトル未定 @東高円寺UFO CLUB",
-    ticket: "ADV ¥2,000 / DOOR ¥2,500",
   },
   {
     datetime: "2026-05-24T18:30:00+09:00",
-    title: "その他もろもろの側から @三鷹おんがくのじかん",
-    ticket: "ADV ¥2,000 / DOOR ¥2,500",
+    title: "その他もろもろの側から vol.1 @三鷹おんがくのじかん",
+    ticket: "ADV ¥3,000 / DOOR ¥3,500",
+    flyerPath: "/public/flyers/sonomoro.png",
+    details: "\r 石蹴り遊びの主催する、不定期イベント第一弾です。 \r\r 出演：石蹴り遊び / 澁谷浩次 / 零進法 accoustic set / 狩生健志 / 石原碧",
   },
 ];
