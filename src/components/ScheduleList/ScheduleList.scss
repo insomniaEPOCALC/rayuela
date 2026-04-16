@@ -54,7 +54,15 @@
     margin: 0 0 10px;
     opacity: 0.88;
     line-height: 1.75;
+    text-align: center;
     white-space: pre-wrap; // \n を効かせる
+  }
+
+  &__details-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
   }
 
   &__link {

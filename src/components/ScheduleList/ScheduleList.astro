@@ -33,17 +33,18 @@ const fmt = new Intl.DateTimeFormat("ja-JP", {
           </div>
 
           <h2 class="schedule__title">{s.title}</h2>
+          <div class="schedule__details-wrapper">
+            {s.flyerPath && (
+              <img
+                class="schedule__img"
+                src={s.flyerPath}
+                alt=""
+                loading="lazy"
+              />
+            )}
 
-          {s.flyerPath && (
-            <img
-              class="schedule__img"
-              src={s.flyerPath}
-              alt=""
-              loading="lazy"
-            />
-          )}
-
-          {s.details && <p class="schedule__details">{s.details}</p>}
+            {s.details && <p class="schedule__details">{s.details}</p>}
+          </div>
 
           {s.link && (
             <a
