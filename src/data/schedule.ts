@@ -16,7 +16,7 @@ export const schedules: Schedule[] = [
     datetime: "2026-05-24T18:30:00+09:00",
     title: "その他もろもろの側から vol.1 @三鷹おんがくのじかん",
     ticket: "ADV ¥3,000 / DOOR ¥3,500",
-    flyerPath: "../public/flyers/sonomoro.png",
+    flyerPath: "../flyers/sonomoro.png",
     details: "石蹴り遊びの主催する、不定期イベント第一弾です。 \r\r 出演：石蹴り遊び / 澁谷浩次 / 零進法 accoustic set / 狩生健志 / 石原碧",
   },
 ];
