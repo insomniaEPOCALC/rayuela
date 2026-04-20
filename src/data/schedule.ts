@@ -20,6 +20,7 @@ export const schedules: Schedule[] = [
     title: "Love Love Love @東高円寺UFO CLUB",
     ticket: "ADV ¥2,500 / DOOR ¥3,000",
     flyerPath: "../flyers/lovelovelove.jpg",
-    details: "呼ばれたので出ます。20:30以降出演する予定です。 \r\r 出演：石蹴り遊び / ゴサローズ / SANTONIC そのほか計5組",
+    details: "UFOは映画に出た人以外でも出られるんですね。20:30以降出演する予定です。 \r\r 出演：石蹴り遊び / ゴサローズ / SANTONIC そのほか計5組",
+    link: "https://ufoclub.jp/schedule/",
   },
 ];
