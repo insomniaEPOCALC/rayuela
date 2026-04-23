@@ -6,7 +6,7 @@ type Props = { schedules: Schedule[] };
 const { schedules } = Astro.props;
 
 const sorted = [...schedules].sort(
-  (a, b) => new Date(a.datetime).getTime() - new Date(b.datetime).getTime(),
+  (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime(),
 );
 
 const fmt = new Intl.DateTimeFormat("ja-JP", {
@@ -46,16 +46,28 @@ const fmt = new Intl.DateTimeFormat("ja-JP", {
             {s.details && <p class="schedule__details">{s.details}</p>}
           </div>
 
-          {s.link && (
-            <a
-              class="schedule__link"
-              href={s.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              詳細を見る
-            </a>
-          )}
+          <div class="schedule__links_wrapper">
+            {s.link && (
+              <a
+                class="schedule__link"
+                href={s.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ◉{s.linkTitle || "詳細を見る"}
+              </a>
+            )}
+            {s.extraLink && (
+              <a
+                class="schedule__link"
+                href={s.extraLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ◉{s.extraLinkTitle || "詳細を見る"}
+              </a>
+            )}
+          </div>
         </article>
       );
     })
