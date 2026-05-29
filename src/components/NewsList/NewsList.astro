@@ -6,7 +6,7 @@ type Props = { news: News[] };
 const { news } = Astro.props;
 
 const sorted = [...news].sort(
-  (a, b) => new Date(a.datetime).getTime() - new Date(b.datetime).getTime(),
+  (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime(),
 );
 
 const fmt = new Intl.DateTimeFormat("ja-JP", {
