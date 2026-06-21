@@ -1,10 +1,13 @@
 ---
 import BaseLayout from "../layouts/AppLayout/AppLayout.astro";
-import ScheduleList from "../components/ScheduleList/ScheduleList.astro";
-import { schedules } from "../data/schedule";
+import "../components/ScheduleList/ScheduleList.scss";
 ---
 
 <BaseLayout title="Schedule | 石蹴り遊び">
   <h1>Schedule</h1>
-  <ScheduleList schedules={schedules} />
+  <section class="schedules" id="schedule-list">
+    <p>読み込み中…</p>
+  </section>
 </BaseLayout>
+
+<script src="../scripts/loadSchedule.ts"></script>

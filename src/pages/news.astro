@@ -1,13 +1,16 @@
 ---
 import BaseLayout from "../layouts/AppLayout/AppLayout.astro";
-import NewsList from "../components/NewsList/NewsList.astro";
-import { news } from "../data/news";
 import NewsTitle from "../components/NewsTitle/NewsTitle.astro";
 import "../styles/news.scss";
+import "../components/NewsList/NewsList.scss";
 ---
 
 <BaseLayout title="News | 石蹴り遊び">
   <h1 class="news__title--hidden">News</h1>
   <NewsTitle />
-  <NewsList news={news} />
+  <section class="newses" id="news-list">
+    <p>読み込み中…</p>
+  </section>
 </BaseLayout>
+
+<script src="../scripts/loadNews.ts"></script>

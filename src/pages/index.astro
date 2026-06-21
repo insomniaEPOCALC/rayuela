@@ -3,20 +3,7 @@ import BaseLayout from "../layouts/AppLayout/AppLayout.astro";
 import SocialLinks from "../components/SocialLinks/SocialLinks.astro";
 import RainOverlay from "../components/RainOverlay/RainOverlay.astro";
 import "../styles/index.scss";
-import { news, type News } from "../data/news";
-import NewsList from "../components/NewsList/NewsList.astro";
-
-let latestNews = news.slice(0, 3);
-
-let formatNews = (latestNews: News[]) => {
-  return latestNews.map((n: News) => {
-    return {
-      datetime: n.datetime,
-      title: n.title,
-      details: n.details,
-    };
-  });
-};
+import "../components/NewsList/NewsList.scss";
 ---
 
 <BaseLayout title="石蹴り遊び">
@@ -37,7 +24,9 @@ let formatNews = (latestNews: News[]) => {
     </div>
 
     <h2 class="lp__news-title">Latest News</h2>
-    <NewsList news={formatNews(latestNews)} />
+    <section class="newses" id="home-news-list">
+      <p>読み込み中…</p>
+    </section>
     <div class="lp__bottom"></div>
     <div class="lp__credits">
       <div class="lp__credit-item">
@@ -57,3 +46,5 @@ let formatNews = (latestNews: News[]) => {
     </div>
   </section>
 </BaseLayout>
+
+<script src="../scripts/loadHomeNews.ts"></script>
