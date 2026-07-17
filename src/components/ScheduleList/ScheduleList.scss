@@ -61,7 +61,9 @@
 
   &__details-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 12px;
     flex-wrap: wrap;
   }
