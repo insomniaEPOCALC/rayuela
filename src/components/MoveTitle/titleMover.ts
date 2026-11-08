@@ -88,12 +88,16 @@ export function mountAboutTitle(
 
     const lineHeight = (fs: number) => Math.floor(fs * 1.25);
 
+    // p5 2.x の textWidth は字面の外接幅なので、送り幅(advance)を直接測る
+    const advance = (t: string) =>
+      (p.drawingContext as CanvasRenderingContext2D).measureText(t).width;
+
     const buildLineCentered = (text: string, y: number, lineIndex: number) => {
-      const lineW = p.textWidth(text);
+      const lineW = advance(text);
       let x = (p.width - lineW) / 2;
 
       for (const ch of text.split("")) {
-        const cw = p.textWidth(ch);
+        const cw = advance(ch);
         const h = p.textAscent() + p.textDescent();
         letters.push({
           ch,
@@ -140,6 +144,15 @@ export function mountAboutTitle(
       p.pixelDensity(1);
       p.clear();
       layout();
+
+      // Webフォントの読み込み完了後に文字幅を測り直す
+      const spec = `${baseFontSize}px "${fontFamily}"`;
+      Promise.all([
+        document.fonts.load(spec, line1 + line2),
+        document.fonts.ready,
+      ])
+        .then(() => layout())
+        .catch(() => {});
     };
 
     p.draw = () => {
